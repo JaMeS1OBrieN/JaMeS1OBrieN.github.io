@@ -11,9 +11,35 @@
   <title>James O'Brien — Developer</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+html.site-locked body > *:not(#site-lock){visibility:hidden}
+#site-lock{display:none;position:fixed;inset:0;z-index:99999;min-height:100vh;padding:24px;box-sizing:border-box;background:linear-gradient(135deg,#f3f3f0,#e7e7e3);align-items:center;justify-content:center;font-family:inherit}
+html.site-locked #site-lock{display:flex}
+#site-lock .lock-panel{width:min(100%,390px);padding:42px 36px;background:rgba(255,255,255,.86);border:1px solid rgba(0,0,0,.08);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.09)}
+#site-lock .lock-mark{margin:0 0 34px;font-size:25px;font-weight:750;letter-spacing:-1.5px;color:#222}
+#site-lock .lock-mark span{color:#ed762f}
+#site-lock .lock-kicker{margin:0 0 10px;color:#ed762f;font-size:11px;font-weight:700;letter-spacing:2px}
+#site-lock h1{margin:0 0 10px;color:#202020;font-size:30px;letter-spacing:-1.2px}
+#site-lock .lock-copy{margin:0 0 26px;color:#777;font-size:14px;line-height:1.6}
+#site-lock form{display:grid;gap:12px}
+#site-lock input{width:100%;box-sizing:border-box;padding:14px 15px;border:1px solid #d8d8d4;border-radius:9px;background:#fff;color:#222;font:inherit;outline:none}
+#site-lock input:focus{border-color:#ed762f;box-shadow:0 0 0 3px rgba(237,118,47,.12)}
+#site-lock button{padding:14px;border:0;border-radius:9px;background:#ed762f;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+#site-lock button:hover{background:#d96322}
+#site-lock .lock-error{min-height:18px;margin:2px 0 0;color:#bd3d30;font-size:13px}
+@media(max-width:480px){#site-lock .lock-panel{padding:32px 25px}}
+  </style>
+  <script>(function(){document.documentElement.classList.add('site-locked');if(sessionStorage.getItem('james-site-unlocked')==='yes')document.documentElement.classList.remove('site-locked')})();</script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+  <div id="site-lock" role="dialog" aria-modal="true" aria-labelledby="lock-title"><div class="lock-panel">
+    <p class="lock-mark">james<span>.</span></p><p class="lock-kicker">PRIVATE ACCESS</p>
+    <h1 id="lock-title">Welcome back.</h1><p class="lock-copy">This website is password protected. Enter the password to continue.</p>
+    <form id="site-lock-form"><input id="site-lock-password" type="password" placeholder="Enter password" autocomplete="current-password" required autofocus>
+    <button type="submit">Unlock website ↗</button><p class="lock-error" id="site-lock-error" role="alert" aria-live="polite"></p></form>
+  </div></div>
+  <script>document.getElementById('site-lock-form').addEventListener('submit',function(e){e.preventDefault();var p=document.getElementById('site-lock-password');if(p.value==='James101'){sessionStorage.setItem('james-site-unlocked','yes');document.documentElement.classList.remove('site-locked');document.getElementById('site-lock').style.display='none'}else{document.getElementById('site-lock-error').textContent='That password is incorrect. Try again.';p.value='';p.focus()}});</script>
   <div class="top-line" aria-hidden="true"></div>
   <header class="header">
     <a class="wordmark" href="#top" aria-label="James O'Brien home">james<span>.</span></a>
