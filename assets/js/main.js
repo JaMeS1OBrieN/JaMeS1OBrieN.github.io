@@ -2,8 +2,6 @@
   const menuButton = document.getElementById("menu-toggle");
   const nav = document.getElementById("primary-nav");
   const year = document.getElementById("year");
-  const progress = document.getElementById("scroll-progress-bar");
-
   if (year) year.textContent = new Date().getFullYear();
 
   const closeMenu = () => {
@@ -11,55 +9,45 @@
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.setAttribute("aria-label", "Open navigation");
     nav.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
   };
-
   if (menuButton && nav) {
     menuButton.addEventListener("click", () => {
-      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-      menuButton.setAttribute("aria-expanded", String(!isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
-      nav.classList.toggle("is-open", !isOpen);
-      document.body.classList.toggle("menu-open", !isOpen);
+      const open = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!open));
+      menuButton.setAttribute("aria-label", open ? "Open navigation" : "Close navigation");
+      nav.classList.toggle("is-open", !open);
     });
-
-    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 700) closeMenu();
-    });
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 600) closeMenu(); });
   }
 
-  let ticking = false;
-  const updateProgress = () => {
-    if (!progress) return;
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const amount = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-    progress.style.width = amount + "%";
-    ticking = false;
+  const updateScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    document.documentElement.style.setProperty("--scroll", max > 0 ? window.scrollY / max : 0);
   };
+  let queued = false;
   window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateProgress);
-      ticking = true;
-    }
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { updateScroll(); queued = false; });
   }, { passive: true });
-  updateProgress();
+  updateScroll();
 
-  const revealItems = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          currentObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
-    revealItems.forEach((item) => observer.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
+  const items = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(item => item.classList.add("is-visible"));
+    return;
   }
+  const observer = new IntersectionObserver((entries, active) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      active.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -28px 0px" });
+  items.forEach((item, index) => {
+    item.style.transitionDelay = (index % 3) * 70 + "ms";
+    observer.observe(item);
+  });
 })();
