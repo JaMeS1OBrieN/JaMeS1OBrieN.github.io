@@ -1,29 +1,39 @@
-# James O'Brien — Personal Website
+# James O'Brien — Portfolio
 
-My personal website and developer portfolio, built to showcase my work, projects, interests and experience.
+Personal portfolio website showcasing my projects, development interests and the technologies I'm exploring.
 
-🌐 **Website:** [JaMeS1OBrieN.github.io](https://JaMeS1OBrieN.github.io)
-
-## About
-
-A central place to bring together the things I'm working on — from software and web development to Linux, networking, servers and infrastructure.
-
-## What's featured
-
-- **About me** — my background and interests
-- **Projects** — selected work and experiments
-- **Technologies** — languages, tools and technologies I'm exploring
-- **Contact** — ways to get in touch
+🌐 **Live website:** [JaMeS1OBrieN.github.io](https://JaMeS1OBrieN.github.io)
 
 ## Built with
 
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- GitHub Pages
+
+## Features
+
+- Responsive layout for desktop, tablet and mobile
+- Custom dark visual design and typography
+- Mobile navigation
+- Scroll progress indicator
+- Subtle reveal animations with reduced-motion support
+- Project links, technology overview and contact section
+- No framework or build step required
+
+## Run locally
+
+Clone the repository and open `index.html` in a browser. For a local server, you can use the VS Code Live Server extension or run:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit [http://localhost:8000](http://localhost:8000).
 
 ## Hosting
 
-Hosted with [GitHub Pages](https://pages.github.com/).
+This repository is configured for a GitHub Pages personal site. GitHub Pages can publish the site from the `main` branch and root directory.
 
 ---
 
