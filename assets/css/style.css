@@ -50,9 +50,9 @@ h2{font-size:clamp(40px,5.2vw,64px);line-height:1.04;letter-spacing:-.075em;font
 .art-label{position:absolute;left:14px;bottom:12px;color:#82877d;font-size:8px}
 .sound-art{background:linear-gradient(135deg,#e6e9e2,#dfe5dc)}
 .sound-bars{height:75px;display:flex;align-items:center;gap:6px}
-.sound-bars i{display:block;width:5px;height:var(--h,25px);background:#849b83;border-radius:5px;transform-origin:center;transition:height .35s ease,background .35s}
+.sound-bars i{display:block;width:5px;height:var(--h,25px);background:#849b83;border-radius:5px;transform-origin:center;transition:transform .35s ease,background .35s}
 .sound-bars i:nth-child(3n){--h:54px}.sound-bars i:nth-child(3n + 1){--h:34px}.sound-bars i:nth-child(4n){--h:67px}.sound-bars i:nth-child(5n){--h:18px}
-.project-card:hover .sound-bars i{height:calc(var(--h,25px) * .72 + 16px);background:#587b5c}
+.project-card:hover .sound-bars i{transform:scaleY(1.2);background:#587b5c}
 .network-art{background:#e5e8e9}
 .network-lines{width:170px;height:95px;position:relative;background:radial-gradient(circle at 50% 50%,#839ba0 0 6px,transparent 7px),radial-gradient(circle at 12% 20%,#839ba0 0 5px,transparent 6px),radial-gradient(circle at 88% 20%,#839ba0 0 5px,transparent 6px),radial-gradient(circle at 12% 80%,#839ba0 0 5px,transparent 6px),radial-gradient(circle at 88% 80%,#839ba0 0 5px,transparent 6px)}
 .network-lines i{position:absolute;height:1px;background:#9aaeb0;transform-origin:left center;width:78px;left:50%;top:50%}.network-lines i:nth-child(1){transform:rotate(205deg)}.network-lines i:nth-child(2){transform:rotate(335deg)}.network-lines i:nth-child(3){transform:rotate(145deg)}.network-lines i:nth-child(4){transform:rotate(25deg)}
