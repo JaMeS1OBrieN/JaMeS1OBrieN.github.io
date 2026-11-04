@@ -47,7 +47,7 @@ h2{font-size:clamp(40px,5.2vw,64px);line-height:1.04;letter-spacing:-.075em;font
 .card-top{display:flex;justify-content:space-between;align-items:center;color:#888c82;font-size:9px}
 .card-arrow{font:18px var(--sans);color:var(--accent);transition:transform .25s}.project-card:hover .card-arrow{transform:translate(3px,-3px)}
 .project-art{height:155px;margin:17px 0;background:#e9eae4;border-radius:3px;position:relative;display:grid;place-items:center;overflow:hidden}
-.soundboard-preview{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease}.project-card:hover .soundboard-preview{transform:scale(1.035}
+.soundboard-preview{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease}.project-card:hover .soundboard-preview{transform:scale(1.035)}
 .art-label{position:absolute;left:14px;bottom:12px;color:#82877d;font-size:8px}
 .sound-art{background:linear-gradient(135deg,#e6e9e2,#dfe5dc)}
 .sound-bars{height:75px;display:flex;align-items:center;gap:6px}
@@ -94,3 +94,20 @@ h1{font-size:clamp(58px,15vw,82px)}.hero-intro{font-size:14px;max-width:450px}.h
 .footer{padding:20px 6%;flex-wrap:wrap}.footer>span{order:3;width:100%}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}.reveal{opacity:1;transform:none}}
+
+
+/* Dark graphite theme */
+:root{--paper:#292c31;--ink:#f0f1f2;--muted:#aeb3ba;--line:#454950}
+html{background:#292c31}
+body{background:linear-gradient(135deg,#22252a 0%,#2d3036 52%,#25282d 100%) fixed;color:#f0f1f2}
+.header{background:rgba(36,39,44,.96);border-color:#454950}
+.header nav,.nav-contact,.quiet-link,.hero-intro,.about-text p,.section-heading>p,.contact-grid p{color:#b9bec5}
+.nav-contact,.quiet-link{border-color:#555b64}
+.eyebrow,.section-label,.aside-caption,.hero-foot,.footer>span,.footer>a:last-child{color:#aeb3ba}
+.hero-foot,.section-wrap,.stack-content,.stack-group{border-color:#454950}
+.aside-note{color:#aeb3ba}
+.projects,.contact{background:linear-gradient(125deg,#30343a 0%,#292d33 100%)}
+.contact-email{border-color:#656b74}
+.header nav{color:#b9bec5}
+.button{background:#e1e4e8;color:#24272c}
+.button:hover{background:var(--accent);color:white}
