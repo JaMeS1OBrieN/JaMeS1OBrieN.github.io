@@ -29,7 +29,7 @@ html.site-locked #site-lock{display:flex}
 #site-lock .lock-error{min-height:18px;margin:2px 0 0;color:#bd3d30;font-size:13px}
 @media(max-width:480px){#site-lock .lock-panel{padding:32px 25px}}
   </style>
-  <script>(function(){document.documentElement.classList.add('site-locked');if(sessionStorage.getItem('james-site-unlocked')==='yes')document.documentElement.classList.remove('site-locked')})();</script>
+  <script>(function(){document.documentElement.classList.add('site-locked');if(localStorage.getItem('james-site-unlocked')==='yes')document.documentElement.classList.remove('site-locked')})();</script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -39,7 +39,7 @@ html.site-locked #site-lock{display:flex}
     <form id="site-lock-form"><input id="site-lock-password" type="password" placeholder="Enter password" autocomplete="current-password" required autofocus>
     <button type="submit">Unlock website ↗</button><p class="lock-error" id="site-lock-error" role="alert" aria-live="polite"></p></form>
   </div></div>
-  <script>document.getElementById('site-lock-form').addEventListener('submit',function(e){e.preventDefault();var p=document.getElementById('site-lock-password');if(p.value==='James101'){sessionStorage.setItem('james-site-unlocked','yes');document.documentElement.classList.remove('site-locked');document.getElementById('site-lock').style.display='none'}else{document.getElementById('site-lock-error').textContent='That password is incorrect. Try again.';p.value='';p.focus()}});</script>
+  <script>document.getElementById('site-lock-form').addEventListener('submit',function(e){e.preventDefault();var p=document.getElementById('site-lock-password');if(p.value==='James101'){localStorage.setItem('james-site-unlocked','yes');document.documentElement.classList.remove('site-locked');document.getElementById('site-lock').style.display='none'}else{document.getElementById('site-lock-error').textContent='That password is incorrect. Try again.';p.value='';p.focus()}});</script>
   <div class="top-line" aria-hidden="true"></div>
   <header class="header">
     <a class="wordmark" href="#top" aria-label="James O'Brien home">james<span>.</span></a>
