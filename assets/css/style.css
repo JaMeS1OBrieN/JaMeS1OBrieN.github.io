@@ -111,3 +111,31 @@ body{background:linear-gradient(135deg,#22252a 0%,#2d3036 52%,#25282d 100%) fixe
 .header nav{color:#b9bec5}
 .button{background:#e1e4e8;color:#24272c}
 .button:hover{background:var(--accent);color:white}
+
+
+/* Project artwork: AstroSMP-inspired green light spill */
+.project-card{position:relative;isolation:isolate;overflow:visible}
+.project-card::after{content:"";position:absolute;z-index:-1;inset:12% 8% 8%;border-radius:18px;background:rgba(43,189,50,.20);filter:blur(34px);opacity:.18;transition:opacity .35s ease,filter .35s ease}
+.project-card:hover::after{opacity:.8;filter:blur(42px)}
+.project-art{position:relative;isolation:isolate;background:#20262b;border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 0 32px rgba(0,0,0,.22)}
+.project-art::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(43,189,50,.18),transparent 68%);opacity:.75;transition:opacity .35s ease}
+.project-card:hover .project-art::before{opacity:1}
+.network-art{background:radial-gradient(ellipse at 50% 55%,#18352c 0%,#202b30 58%,#1c2229 100%)}
+.garage-art{background:radial-gradient(ellipse at 50% 55%,#19372b 0%,#222c30 58%,#1c2229 100%)}
+.geo-art{background:radial-gradient(ellipse at 50% 55%,#19352e 0%,#242b32 58%,#1c2229 100%)}
+.project-icon{position:relative;z-index:1;width:190px;max-width:75%;height:112px;overflow:visible;fill:none;stroke:#53e16a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(43,189,50,.52)) drop-shadow(0 0 19px rgba(43,189,50,.24));transition:transform .35s ease,filter .35s ease}
+.project-card:hover .project-icon{transform:translateY(-4px) scale(1.045);filter:drop-shadow(0 0 9px rgba(43,189,50,.8)) drop-shadow(0 0 27px rgba(43,189,50,.42))}
+.network-icon rect{fill:rgba(43,189,50,.12);stroke:#53e16a}
+.network-icon circle{fill:#202b30;stroke:#53e16a}
+.network-icon path:first-child{stroke:rgba(83,225,106,.65)}
+.network-icon .node-detail{stroke:#b5ffbd;stroke-width:2.5}
+.server-icon rect{fill:rgba(43,189,50,.10);stroke:#53e16a}
+.server-icon path{stroke:#a4f8ad;stroke-width:2}
+.server-icon circle{fill:#53e16a;stroke:none;filter:drop-shadow(0 0 4px #53e16a)}
+.geo-icon circle{stroke:#53e16a}
+.geo-icon path{stroke:#8df49a}
+.geo-icon .geo-pin{fill:rgba(43,189,50,.24);stroke:#53e16a}
+.geo-icon .geo-pin-dot{fill:#b5ffbd;stroke:none}
+.art-label{z-index:2;color:#8edc99}
+.project-card:hover{border-color:rgba(83,225,106,.35);box-shadow:0 12px 34px rgba(0,0,0,.22),0 0 28px rgba(43,189,50,.16)}
+@media(prefers-reduced-motion:reduce){.project-card::after,.project-icon,.project-art::before{transition:none}}
