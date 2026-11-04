@@ -47,6 +47,7 @@ h2{font-size:clamp(40px,5.2vw,64px);line-height:1.04;letter-spacing:-.075em;font
 .card-top{display:flex;justify-content:space-between;align-items:center;color:#888c82;font-size:9px}
 .card-arrow{font:18px var(--sans);color:var(--accent);transition:transform .25s}.project-card:hover .card-arrow{transform:translate(3px,-3px)}
 .project-art{height:155px;margin:17px 0;background:#e9eae4;border-radius:3px;position:relative;display:grid;place-items:center;overflow:hidden}
+.soundboard-preview{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease}.project-card:hover .soundboard-preview{transform:scale(1.035}
 .art-label{position:absolute;left:14px;bottom:12px;color:#82877d;font-size:8px}
 .sound-art{background:linear-gradient(135deg,#e6e9e2,#dfe5dc)}
 .sound-bars{height:75px;display:flex;align-items:center;gap:6px}
